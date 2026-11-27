@@ -10,7 +10,7 @@
 - 更新頻度：月1〜2本想定。タグ・検索・RSSは記事が10本を超えてから検討
 
 ## 技術構成
-- Next.js 15（App Router）/ React 19 / TypeScript / Tailwind CSS v4
+- Next.js 15.5（App Router）/ React 19 / TypeScript / Tailwind CSS v4
 - 記事はMDXファイルで管理（CMSは使わない。Sanityは廃止済み）
 - 依存追加は `gray-matter` と `next-mdx-remote` のみ。それ以外を足す場合は理由をこのファイルに書く
 - ホスティング：Vercel（`main` へのpushで本番デプロイ）
@@ -58,5 +58,5 @@ draft: false            # true なら本番ビルドで除外
 - [ ] （リニューアル時の判断）フォントは Geist（next/font/google）をやめ、システムフォントに変更（ビルド時の外部通信を避けるため）。デザイン方向性と合わせて決める
 - [ ] （リニューアル時の判断）サンプル記事2本（`sample-minimal-desk` / `sample-one-bag`）は draft: true。本番ビルドでは除外され、記事0本でも動く。実記事を入れたら削除
 - [ ] （リニューアル時の判断）`@tailwindcss/typography` は依存追加ルールにより不使用。本文スタイルは `app/posts/[slug]/page.tsx` の MDX components で個別指定
-- [ ] （リニューアル時の判断）Next.js は 15.3.5 のまま（15系の最新へ上げるかは未検討）
+- [ ] （リニューアル時の判断）Next.js を 15.3.5 → 15.5.29 に更新（15.3.5 は Vercel が脆弱性でデプロイをブロックしたため）。npm audit は 15系すべてを指摘し修正版は 16.x のみ。Vercel で再ブロックされたら 16 系への移行を検討（CLAUDE.md の技術構成も要更新）
 - [ ] （リニューアル時の判断）`dev` から `--turbopack` を外した（挙動差を避けるため。戻すかは任意）
